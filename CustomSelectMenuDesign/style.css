@@ -42,13 +42,23 @@
     list-style: none;
     cursor: pointer;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 .options img{
     width: 25px;
-    position: absolute;
-    top: 12px;
-    left: 25px;
+    height: 25px;
+    position: static;
+}
+.options p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
 }
 .options:hover{
     background: rgba(255,255,255,0.7);
+}
+.hide{
+    visibility: hidden;
 }

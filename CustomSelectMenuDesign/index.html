@@ -10,33 +10,58 @@
     <div class="hero">
         <div class="selector">
             <div id="selectField">
-                <p>Select Social Media</p>
+                <p id="selectText">Select Social Media</p>
                 <img src="images/arrow.png" alt="">
             </div>
-            <ul id="list">
+            <ul id="list" class="hide">
                 <li class="options">
-                    <img src="images/facebook.png" alt="">
-                    <p>facebook</p>
+                    <img src="images/facebook.png" alt="Facebook">
+                    <p>Facebook</p>
                 </li>
                 <li class="options">
-                    <img src="images/instagram.png" alt="">
-                    <p>instagram</p>
+                    <img src="images/instagram.png" alt="Instagram">
+                    <p>Instagram</p>
                 </li>
                 <li class="options">
-                    <img src="images/twitter.png" alt="">
-                    <p>twitter</p>
+                    <img src="images/twitter.png" alt="Twitter">
+                    <p>Twitter</p>
                 </li>
                 <li class="options">
-                    <img src="images/pinterest.png" alt="">
-                    <p>pinterest</p>
+                    <img src="images/pinterest.png" alt="Pinterest">
+                    <p>Pinterest</p>
                 </li>
                 <li class="options">
-                    <img src="images/whatsapp.png" alt="">
-                    <p>whatsapp</p>
+                    <img src="images/whatsapp.png" alt="WhatsApp">
+                    <p>WhatsApp</p>
                 </li>
-
             </ul>
         </div>
     </div>
+    <script>
+        var selectField = document.getElementById("selectField");
+        var selectText = document.getElementById("selectText");
+        var list = document.getElementById("list");
+        var options = document.getElementsByClassName("options");
+        
+        // Toggle dropdown visibility
+        selectField.onclick = function() {
+            list.classList.toggle('hide');
+        }
+        
+        // Handle option selection
+        for(option of options){
+           option.onclick = function(){
+                selectText.innerHTML = this.querySelector('p').textContent;
+                list.style.display = 'none';
+            } 
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!selectField.contains(event.target) && !list.contains(event.target)) {
+                list.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
